@@ -74,7 +74,7 @@ const LoginRegister = ({ onLoginSuccess }) => {
       <div className="auth-container-wrapper">
         <div className="auth-card">
           <div className="auth-header">
-            <span className="auth-instagram-logo">Instagram</span>
+            <span className="auth-instagram-logo">SOC</span>
             <p>
               {isLogin 
                 ? 'Sign in to see photos, chats, and posts from your friends.' 

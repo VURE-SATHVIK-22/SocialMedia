@@ -24,9 +24,8 @@ const InstagramIcon = ({ size = 24 }) => (
 const Sidebar = ({ activeTab, setActiveTab, currentUser, onLogout, openCreateModal }) => {
   return (
     <div className="sidebar left-sidebar">
-      {/* Cursive Instagram Cursive Wordmark */}
       <div className="logo" onClick={() => setActiveTab('feed')}>
-        <span className="instagram-logo-text">Instagram</span>
+        <span className="instagram-logo-text">SOC</span>
         <span className="instagram-logo-icon"><InstagramIcon size={24} /></span>
       </div>
       
