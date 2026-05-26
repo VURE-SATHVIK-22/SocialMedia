@@ -1,0 +1,170 @@
+.right-sidebar {
+  width: 318px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 24px 20px 24px;
+  position: fixed;
+  top: 0;
+  right: calc((100% - 244px - 630px - 318px) / 2); /* Centers it relative to feed and sidebar */
+  height: 100vh;
+  background-color: #000000;
+  border-left: 1px solid var(--border-color);
+  z-index: 90;
+  overflow-y: auto;
+}
+
+/* User Profile Row at top of right panel */
+.panel-current-user-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.current-user-info-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.current-user-info-link:hover .current-user-details h4 {
+  opacity: 0.8;
+}
+
+.panel-current-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+.current-user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.current-user-details h4 {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.current-user-details span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.panel-switch-btn {
+  background: none;
+  border: none;
+  color: var(--accent-blue);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.panel-switch-btn:hover {
+  color: var(--accent-blue-hover);
+}
+
+/* Suggestions header */
+.suggestions-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.suggestions-section-header h3 {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.see-all-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.see-all-label:hover {
+  opacity: 0.7;
+}
+
+/* Suggestions User List */
+.suggestions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.suggested-user-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.suggested-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.suggested-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+.suggested-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.suggested-details h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.suggested-details span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.message-link-btn {
+  background: none;
+  border: none;
+  color: var(--accent-blue);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.message-link-btn:hover {
+  color: var(--accent-blue-hover);
+}
+
+.panel-status-msg {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 16px 0;
+  line-height: 1.4;
+}
+
+/* Position right sidebar on different viewport widths */
+@media (max-width: 1260px) {
+  .right-sidebar {
+    display: none !important;
+  }
+}

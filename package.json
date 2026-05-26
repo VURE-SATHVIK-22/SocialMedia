@@ -1,0 +1,18 @@
+{
+  "name": "social-media-workspace",
+  "version": "1.0.0",
+  "description": "Root workspace for Social Media application",
+  "main": "index.js",
+  "scripts": {
+    "install:frontend": "cd \"Social Media\" && npm install",
+    "install:backend": "cd backend && npm install",
+    "install-all": "npm install && npm run install:frontend && npm run install:backend",
+    "frontend": "cd \"Social Media\" && npm run dev",
+    "backend": "cd backend && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "check-db": "cd backend && npm run check-db"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

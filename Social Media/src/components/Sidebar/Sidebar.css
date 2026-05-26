@@ -1,0 +1,168 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 244px;
+  padding: 24px 12px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  z-index: 100;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo {
+  cursor: pointer;
+  padding: 12px 12px 24px 12px;
+  margin-bottom: 20px;
+}
+
+.instagram-logo-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+}
+
+.instagram-logo-icon {
+  display: none;
+  color: var(--text-primary);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.nav-item-btn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.nav-item-btn:hover {
+  background-color: var(--nav-hover);
+}
+
+.nav-item-btn:active {
+  transform: scale(0.98);
+}
+
+.nav-item-btn.active {
+  font-weight: 700;
+}
+
+.nav-profile-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+}
+
+.logout-btn-item {
+  color: var(--danger) !important;
+}
+
+.logout-btn-item:hover {
+  background-color: rgba(239, 68, 68, 0.08) !important;
+}
+
+/* Tablet & Smaller Layout (instagram-style slim sidebar) */
+@media (max-width: 1260px) {
+  .sidebar {
+    width: 72px;
+    padding: 24px 8px;
+    align-items: center;
+  }
+
+  .instagram-logo-text {
+    display: none;
+  }
+
+  .instagram-logo-icon {
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 12px;
+  }
+
+  .nav-item-btn {
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .nav-item-btn span {
+    display: none;
+  }
+  
+  .logo {
+    padding: 12px 0;
+  }
+}
+
+/* Mobile bottom nav bar */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    height: 50px;
+    flex-direction: row;
+    padding: 0;
+    border-right: none;
+    border-top: 1px solid var(--border-color);
+    background-color: #000000;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .logo, .sidebar-footer {
+    display: none !important;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+  }
+
+  .nav-item-btn {
+    width: auto;
+    height: 100%;
+    border-radius: 0;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  .nav-item-btn:hover {
+    background-color: transparent;
+  }
+}

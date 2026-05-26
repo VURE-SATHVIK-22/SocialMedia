@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #000000;
+  --sidebar-bg: #000000;
+  --panel-bg: #000000;
+  --border-color: #262626;
+  --border-hover: #363636;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a8a8a8;
+  --text-muted: #737373;
+  --accent-blue: #0095f6;
+  --accent-blue-hover: #1877f2;
+  --accent-heart: #ff3040;
+  --nav-hover: #121212;
+  --card-bg: #000000;
+  --glass-blur: none;
+  --danger: #ef4444;
+  --success: #10b981;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-attachment: fixed;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #363636;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  background-color: #000000;
+}
+
+/* Instagram Panel / Card Style */
+.instagram-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s ease;
+}
+
+/* Modern Typography */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Standard Instagram Icon/Buttons */
+.instagram-btn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.instagram-btn:hover {
+  opacity: 0.7;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Main Content layout containing feed/chat and recommendations */
+.main-content-area {
+  flex: 1;
+  display: flex;
+  margin-left: 244px; /* Matches Sidebar width */
+  min-height: 100vh;
+}
+
+.feed-layout {
+  flex: 1;
+  max-width: 630px;
+  padding: 40px 20px 24px 20px;
+  margin: 0 auto;
+}
+
+/* Responsive constraints */
+@media (max-width: 1260px) {
+  .right-sidebar {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content-area {
+    margin-left: 72px; /* Slim sidebar */
+  }
+}
+
+@media (max-width: 640px) {
+  .main-content-area {
+    margin-left: 0;
+    margin-bottom: 50px; /* Tabbar bottom spacing */
+  }
+  .feed-layout {
+    padding: 16px 8px;
+    max-width: 100%;
+  }
+}
+
+/* Instagram Modal styling */
+.instagram-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+}
+
+.instagram-modal-content {
+  background-color: #121212;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid #262626;
+}
+
+.modal-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: #f5f5f5;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.modal-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-user-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-username {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.modal-textarea {
+  background: none;
+  border: none;
+  resize: none;
+  color: #f5f5f5;
+  font-size: 0.95rem;
+  outline: none;
+  width: 100%;
+  min-height: 100px;
+}
+
+.modal-image-input {
+  background: #000000;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #f5f5f5;
+  font-size: 0.85rem;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.modal-image-input:focus {
+  border-color: #363636;
+}
+
+.modal-image-preview {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #262626;
+  max-height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+}
+
+.modal-image-preview img {
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.modal-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #262626;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-share-btn {
+  background: none;
+  border: none;
+  color: var(--accent-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-share-btn:hover {
+  color: var(--accent-blue-hover);
+}
+
+.modal-share-btn:disabled {
+  color: #003554;
+  cursor: not-allowed;
+}
+
+/* Premium Choose File Upload Area */
+.modal-file-upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #262626;
+  border-radius: 8px;
+  padding: 36px 16px;
+  background: #09090b;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.modal-file-upload-area:hover {
+  background: #141416;
+  border-color: #3f3f46;
+}
+
+.modal-file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.modal-file-upload-area:hover .modal-file-label {
+  color: var(--text-primary);
+}
+
+.upload-icon {
+  color: var(--accent-blue);
+  transition: transform 0.2s ease;
+}
+
+.modal-file-upload-area:hover .upload-icon {
+  transform: translateY(-4px);
+}
+
+.modal-image-preview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.remove-preview-btn {
+  background: #262626;
+  border: 1px solid #3f3f46;
+  border-radius: 6px;
+  padding: 8px 16px;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  align-self: center;
+  font-weight: 600;
+}
+
+.remove-preview-btn:hover {
+  background: #3f3f46;
+  border-color: #52525b;
+}
+
